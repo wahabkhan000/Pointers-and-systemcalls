@@ -1,13 +1,16 @@
 #include<iostream>
 using namespace std;
 int main(){
-    char *buffer[100];
+    char buffer[100];
+    char *dest=buffer;
     string s;
     getline(cin,s);
-    int n=s.length();
-    char *ptr=&s[0];
-    for(int i=0;i<n;i++){
-        *(buffer+i)=(ptr+i);
+    char *src=&s[0];
+    while(*src != '\0'){
+        *dest=*src;
+        dest++;
+        src++;
     }
-    cout<<*buffer<<endl;
+    *dest='\0';
+    cout<<buffer<<endl;
 }
